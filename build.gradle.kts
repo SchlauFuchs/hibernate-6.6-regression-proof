@@ -63,13 +63,13 @@ hibernate {
 //}
 
 dependencies {
+    annotationProcessor(libs.lombok)
     annotationProcessor(libs.hibernate.jpamodelgen)
     implementation(libs.hibernate)
 //    implementation(libs.kotlin.reflect)
 //    implementation(libs.kotlin.noarg)
 //    implementation(libs.kotlin.stdlib.jdk8)
-    implementation(libs.lombok.annotations)
-    implementation(libs.lombok.annotations)
+    implementation(libs.lombok)
 
     // Testing
 //    testImplementation(libs.kotlin.test)
