@@ -1,25 +1,26 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+//import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+//import org.jetbrains.kotlin.gradle.report.collectCompilerArguments
 
 plugins {
     idea
     `java-library`
-    alias(libs.plugins.kotlin.jvm)
-    alias(libs.plugins.kotlin.spring)
-    alias(libs.plugins.kotlin.noarg)
-    alias(libs.plugins.kotlin.jpa)
-    alias(libs.plugins.kotlin.allopen)
-    alias(libs.plugins.kotlin.kapt)
+//    alias(libs.plugins.kotlin.jvm)
+//    alias(libs.plugins.kotlin.spring)
+//    alias(libs.plugins.kotlin.noarg)
+//    alias(libs.plugins.kotlin.jpa)
+//    alias(libs.plugins.kotlin.allopen)
+//    alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hibernate)
-    alias(libs.plugins.ktlint)
+//    alias(libs.plugins.ktlint)
 }
 
 repositories {
     mavenCentral()
 }
 
-ktlint {
-    version.set(libs.versions.ktlint)
-}
+//ktlint {
+//    version.set(libs.versions.ktlint)
+//}
 
 tasks {
     compileJava {
@@ -27,12 +28,12 @@ tasks {
         targetCompatibility = "21"
     }
 
-    compileKotlin {
-        compilerOptions {
-            jvmTarget = JvmTarget.JVM_21
-            freeCompilerArgs = listOf("-Xjsr305=strict", "-Xskip-prerelease-check")
-        }
-    }
+//    compileKotlin {
+//        compilerOptions {
+//            jvmTarget = JvmTarget.JVM_21
+//            freeCompilerArgs = listOf("-Xjsr305=strict", "-Xskip-prerelease-check")
+//        }
+//    }
 
     test {
         useJUnitPlatform()
@@ -48,30 +49,30 @@ hibernate {
         enableExtendedEnhancement.set(true)
     }
 }
-
-allOpen {
-    annotation("jakarta.persistence.Entity")
-    annotation("jakarta.persistence.MappedSuperclass")
-    annotation("jakarta.persistence.Embeddable")
-}
-
-noArg {
-    annotation("jakarta.persistence.Entity")
-    annotation("lombok.NoArgsConstructor")
-    invokeInitializers = true
-}
+//
+//allOpen {
+//    annotation("jakarta.persistence.Entity")
+//    annotation("jakarta.persistence.MappedSuperclass")
+//    annotation("jakarta.persistence.Embeddable")
+//}
+//
+//noArg {
+//    annotation("jakarta.persistence.Entity")
+//    annotation("lombok.NoArgsConstructor")
+//    invokeInitializers = true
+//}
 
 dependencies {
-    kapt(libs.hibernate.jpamodelgen)
+    annotationProcessor(libs.hibernate.jpamodelgen)
     implementation(libs.hibernate)
-    implementation(libs.kotlin.reflect)
-    implementation(libs.kotlin.noarg)
-    implementation(libs.kotlin.stdlib.jdk8)
+//    implementation(libs.kotlin.reflect)
+//    implementation(libs.kotlin.noarg)
+//    implementation(libs.kotlin.stdlib.jdk8)
     implementation(libs.lombok.annotations)
     implementation(libs.lombok.annotations)
 
     // Testing
-    testImplementation(libs.kotlin.test)
+//    testImplementation(libs.kotlin.test)
     testImplementation(libs.h2)
     testImplementation(libs.reflection)
 }
