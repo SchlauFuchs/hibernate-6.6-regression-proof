@@ -9,7 +9,6 @@ plugins {
     alias(libs.plugins.kotlin.jpa)
     alias(libs.plugins.kotlin.allopen)
     alias(libs.plugins.kotlin.kapt)
-    alias(libs.plugins.spring.boot)
     alias(libs.plugins.hibernate)
     alias(libs.plugins.ktlint)
 }
@@ -69,14 +68,10 @@ dependencies {
     implementation(libs.kotlin.noarg)
     implementation(libs.kotlin.stdlib.jdk8)
     implementation(libs.lombok.annotations)
-    implementation(libs.bundles.spring.boot)
     implementation(libs.lombok.annotations)
 
     // Testing
- //   testImplementation(libs.kotlin.test)
- //   testImplementation(libs.kotest)
- //   testImplementation(libs.hamcrest)
-    testImplementation(libs.spring.boot.starter.test)
+    testImplementation(libs.kotlin.test)
     testImplementation(libs.h2)
+    testImplementation(libs.reflection)
 }
-

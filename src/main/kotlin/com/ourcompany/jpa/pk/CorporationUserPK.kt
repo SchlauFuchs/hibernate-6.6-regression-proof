@@ -2,7 +2,7 @@ package com.ourcompany.jpa.pk
 
 import lombok.NoArgsConstructor
 import java.io.Serializable
-import java.util.*
+import java.util.Objects
 
 @NoArgsConstructor
 data class CorporationUserPK(

@@ -12,7 +12,6 @@ import jakarta.persistence.Table
 @Table(name = "corporation_person_xref")
 @IdClass(CorporationUserPK::class)
 class CorporationUser {
-
     @Id
     @ManyToOne
     @JoinColumn(name = "user_id_person", updatable = false)
@@ -22,5 +21,4 @@ class CorporationUser {
     @ManyToOne
     @JoinColumn(name = "user_id_corporation", updatable = false)
     lateinit var corporation: Corporation
-
 }

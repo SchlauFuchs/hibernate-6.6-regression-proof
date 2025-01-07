@@ -12,7 +12,6 @@ import jakarta.persistence.Table
 @Table(name = "document_receiver")
 @IdClass(DocumentReceiverPK::class)
 class DocumentReceiver : Target {
-
     override val recipientId
         get() = user.id
 
