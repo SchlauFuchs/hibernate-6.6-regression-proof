@@ -1,28 +1,38 @@
-package com.ourcompany.jpa
+package com.ourcompany.jpa;
 
-import jakarta.persistence.Cacheable
-import jakarta.persistence.DiscriminatorColumn
-import jakarta.persistence.Entity
-import jakarta.persistence.Id
-import jakarta.persistence.Table
+import jakarta.persistence.Cacheable;
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.NonNull;
+
+import java.util.Objects;
 
 @Cacheable
 @Table(name = "users")
 @DiscriminatorColumn(name = "type")
 @Entity
-abstract class User {
+public abstract class User {
     @Id
-    lateinit var id: String
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        return if (other is User) id == other.id else false
-    }
-
-    override fun hashCode(): Int = 0
+    @NonNull
+    String id;
 
     @Override
-    override fun toString(): String {
-        return this::class.simpleName + "(id = $id )"
+    public boolean equals(Object o) {
+        if (!(o instanceof User user)) return false;
+        return Objects.equals(id, user.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getName() + "{" +
+                "id='" + id + '\'' +
+                '}';
     }
 }

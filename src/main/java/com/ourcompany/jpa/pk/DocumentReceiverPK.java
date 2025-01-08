@@ -1,12 +1,18 @@
-package com.ourcompany.jpa.pk
+package com.ourcompany.jpa.pk;
 
-import com.ourcompany.jpa.Document
-import com.ourcompany.jpa.User
-import lombok.NoArgsConstructor
-import java.io.Serializable
+import com.ourcompany.jpa.Document;
+import com.ourcompany.jpa.User;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
+import java.io.Serializable;
+
+@Data
 @NoArgsConstructor
-data class DocumentReceiverPK(
-    var document: Document,
-    var user: User,
-) : Serializable
+public class DocumentReceiverPK implements Serializable {
+    @NonNull
+    Document document;
+    @NonNull
+    User user;
+}

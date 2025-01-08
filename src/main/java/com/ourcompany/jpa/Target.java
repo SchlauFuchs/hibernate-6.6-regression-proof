@@ -1,7 +1,7 @@
-package com.ourcompany.jpa
+package com.ourcompany.jpa;
 
 interface Target {
-    val document: Document
+    Document getDocument();
 
-    val recipientId: String
+    String getRecipientId();
 }

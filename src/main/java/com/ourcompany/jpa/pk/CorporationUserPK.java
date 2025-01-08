@@ -1,25 +1,16 @@
-package com.ourcompany.jpa.pk
+package com.ourcompany.jpa.pk;
 
-import lombok.NoArgsConstructor
-import java.io.Serializable
-import java.util.Objects
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
-@NoArgsConstructor
-data class CorporationUserPK(
-    var person: String,
-    var corporation: String,
-) : Serializable {
-    override fun equals(other: Any?): Boolean {
-        return if (this === other) {
-            true
-        } else if (other is CorporationUserPK) {
-            person == other.person && corporation == other.corporation
-        } else {
-            false
-        }
-    }
+import java.io.Serializable;
 
-    override fun hashCode(): Int {
-        return Objects.hash(person, corporation)
-    }
+@Data @NoArgsConstructor
+public class CorporationUserPK implements Serializable {
+    @NonNull
+    public String person;
+    @NonNull
+    public String corporation;
+
 }

@@ -1,23 +1,29 @@
-package com.ourcompany.jpa
+package com.ourcompany.jpa;
 
-import com.ourcompany.jpa.embedded.Owner
-import jakarta.persistence.Column
-import jakarta.persistence.Embedded
-import jakarta.persistence.Entity
-import jakarta.persistence.Id
-import jakarta.persistence.OneToMany
-import jakarta.persistence.Table
+import com.ourcompany.jpa.embedded.Owner;
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "documents")
-class Document {
+public class Document {
+    @NonNull
     @Column(nullable = false, insertable = false, updatable = false)
     @Id
-    var id: Int = 0
+    public Integer id = 0;
 
+    @NonNull
     @Embedded
-    var owner: Owner = Owner()
+    public Owner owner = new Owner();
 
+    @NonNull
     @OneToMany(mappedBy = "document")
-    var recipients: MutableList<DocumentReceiver> = mutableListOf()
+    public List<DocumentReceiver> recipients= new ArrayList<>();
 }

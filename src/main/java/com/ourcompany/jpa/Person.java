@@ -1,14 +1,19 @@
-package com.ourcompany.jpa
+package com.ourcompany.jpa;
 
-import jakarta.persistence.Cacheable
-import jakarta.persistence.Column
-import jakarta.persistence.DiscriminatorValue
-import jakarta.persistence.Entity
+import jakarta.persistence.Cacheable;
+import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@Data
+@EqualsAndHashCode(callSuper = true)
 @Cacheable
 @Entity
 @DiscriminatorValue("PERS")
-class Person : User() {
+public class Person extends User {
     @Column(name = "surname")
-    var surname: String? = null
+    String surname;
 }
+
