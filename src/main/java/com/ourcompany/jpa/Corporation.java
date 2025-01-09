@@ -11,7 +11,4 @@ import jakarta.persistence.Entity;
 public class Corporation extends User {
     @Column(name = "corporate_name")
     String corporateName;
-
-    public Corporation() {
-    }
 }

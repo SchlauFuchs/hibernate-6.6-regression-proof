@@ -17,6 +17,4 @@ public class Document {
     @Embedded
     public Owner owner = new Owner();
 
-    @OneToMany(mappedBy = "document")
-    public List<DocumentReceiver> recipients= new ArrayList<>();
 }

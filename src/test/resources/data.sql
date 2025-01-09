@@ -8,6 +8,3 @@ VALUES ('linznowe', 'srussell001');
 
 INSERT INTO documents(id, owner, user_id_owner_corporation)
 VALUES (2100180, 'srussell001', 'linznowe');
-
-INSERT INTO document_receiver (usr_id, document_id, user_id_corporation)
-VALUES ('srussell001', 2100180, 'linznowe');

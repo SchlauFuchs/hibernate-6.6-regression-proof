@@ -1,6 +1,6 @@
 package com.ourcompany.repository;
 
-import com.ourcompany.jpa.DocumentReceiver;
+import com.ourcompany.jpa.Document;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import org.h2.tools.RunScript;
@@ -24,22 +24,13 @@ class DocumentRecipientRepositoryTest {
     static EntityManager entityManager;
 
     @Test
-    public void failingRepositoryRead() {
+    public void failingDocumentRead() {
         System.out.println("Attempt 1 - pass");
-        String query = """
-                SELECT r FROM DocumentReceiver r\s
-                JOIN FETCH r.document\s
-                WHERE r.document.id = :noticeId AND r.user.id = :recipientId""";
-        entityManager.createQuery(query, DocumentReceiver.class)
-                .setParameter("noticeId", 2100180)
-                .setParameter("recipientId", "srussell001")
-                .getResultList();
+        String query = "SELECT d FROM Document d";
+        entityManager.createQuery(query, Document.class).getResultList();
 
         System.out.println("Attempt 2 - fails in Hibernate 6.6.x");
-        entityManager.createQuery(query, DocumentReceiver.class)
-                .setParameter("noticeId", 2100180)
-                .setParameter("recipientId", "srussell001")
-                .getResultList();
+        entityManager.createQuery(query, Document.class).getResultList();
     }
 
     @BeforeAll

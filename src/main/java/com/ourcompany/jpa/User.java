@@ -15,22 +15,4 @@ import java.util.Objects;
 public abstract class User {
     @Id
     String id;
-
-    @Override
-    public boolean equals(Object o) {
-        if (!(o instanceof User user)) return false;
-        return Objects.equals(id, user.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
-
-    @Override
-    public String toString() {
-        return this.getClass().getName() + "{" +
-                "id='" + id + '\'' +
-                '}';
-    }
 }
