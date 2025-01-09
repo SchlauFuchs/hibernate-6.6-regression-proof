@@ -7,31 +7,17 @@ import jakarta.persistence.IdClass;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
-@Data
-@EqualsAndHashCode(callSuper = false)
-@NoArgsConstructor
 @Entity
 @Table(name = "document_receiver")
 @IdClass(DocumentReceiverPK.class)
-public class DocumentReceiver implements Target {
+public class DocumentReceiver {
 
-    @Override
-    public String getRecipientId() {
-        return user.id;
-    }
-
-    @NonNull
     @Id
     @ManyToOne
     @JoinColumn(name = "document_id", updatable = false)
     public Document document;
 
-    @NonNull
     @Id
     @ManyToOne(targetEntity = User.class)
     @JoinColumn(name = "usr_id", updatable = false)

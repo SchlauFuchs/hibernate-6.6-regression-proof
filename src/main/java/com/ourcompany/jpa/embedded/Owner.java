@@ -8,15 +8,9 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
-@Data
-@NoArgsConstructor
 @Embeddable
 public class Owner {
-    @NonNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner")
     Person person;

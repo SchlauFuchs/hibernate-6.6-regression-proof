@@ -5,7 +5,6 @@ import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.NonNull;
 
 import java.util.Objects;
 
@@ -15,7 +14,6 @@ import java.util.Objects;
 @Entity
 public abstract class User {
     @Id
-    @NonNull
     String id;
 
     @Override

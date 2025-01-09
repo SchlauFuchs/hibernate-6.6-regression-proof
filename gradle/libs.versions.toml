@@ -7,7 +7,6 @@ h2 = "com.h2database:h2:2.3.232"
 hibernate = { module = "org.hibernate.orm:hibernate-core", version.ref = "hibernate" }
 hibernate-jpamodelgen = { module = "org.hibernate:hibernate-jpamodelgen", version.ref = "hibernate" }
 junit5 = "org.junit.jupiter:junit-jupiter:5.8.2"
-lombok = "org.projectlombok:lombok:1.18.36"
 reflection = "org.reflections:reflections:0.9.12"
 
 [plugins]

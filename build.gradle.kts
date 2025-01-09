@@ -30,10 +30,8 @@ hibernate {
 }
 
 dependencies {
-    annotationProcessor(libs.lombok)
     annotationProcessor(libs.hibernate.jpamodelgen)
     implementation(libs.hibernate)
-    implementation(libs.lombok)
 
     // Testing
     testImplementation(libs.h2)
